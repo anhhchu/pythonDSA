@@ -1,4 +1,4 @@
-# python-data-structure-algorithms
+# PYTHON DATA STRUCTURE AND ALGORITHMS
 Implementing data structure and algorithms implementation in python
 
 ## Topic covered:
