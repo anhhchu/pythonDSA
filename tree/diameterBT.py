@@ -5,9 +5,9 @@ Given a binary tree, you need to compute the length of the diameter of the tree.
 Example:
 Given a binary tree
           1
-         / \
+         / 
         2   3
-       / \     
+       /      
       4   5    
 Return 3, which is the length of the path [4,2,1,3] or [5,2,1,3].
 
@@ -46,4 +46,35 @@ def _reconstructTree(arr, parentNode, p):
 
 class Solution(object):
     def diameterOfBinaryTree(self, root):
-        pass
+        '''
+        Time O(N^2) each node is touched twice for height and diameter calculation
+        '''
+        # remember: base case is when tree is empty, return 0
+        if root is None:
+            return 0
+        
+        # calculate height of each subtree
+        heightL = self.height(root.left)
+        heightR = self.height(root.right)
+        
+        # recursively calculate diameter at each node of the tree and return the max
+        return max(heightL+heightR, max(self.diameterOfBinaryTree(root.left),self.diameterOfBinaryTree(root.right)))
+        
+        
+        # use a helper function to calculate height
+    def height(self, root):
+        # base case
+        if root is None:
+            return 0
+        
+        # calculate height for each subtree and get the max 
+        return 1 + max(self.height(root.left), self.height(root.right))
+        
+sol = Solution()
+arr = [1,2,3,4,5]
+tree = reconstructTree(arr)
+print(sol.diameterOfBinaryTree(tree))
+
+
+
+

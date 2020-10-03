@@ -29,6 +29,5 @@ class LinkedList:
             node = node.next
 
 def even_after_odd(linkedlist):
-    if linkedlist.head
-    even = linkedlist.head
+    pass
 
