@@ -120,7 +120,7 @@ class DoublyLinkedList(object):
         if index > self.count - 1:
             raise Exception("Index out of range.")
         current = self.head # Note subtle change
-        for n in range(index):
+        for _ in range(index):
             current = current.next
         return current.data
 
@@ -128,7 +128,7 @@ class DoublyLinkedList(object):
         if index > self.count - 1:
             raise Exception("Index out of range.")
         current = self.head # Note subtle change
-        for n in range(index):
+        for _ in range(index):
             current = current.next
         current.data = value
 

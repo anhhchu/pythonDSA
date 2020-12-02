@@ -22,22 +22,44 @@ class LinkedList():
         if self.head is None:
             return None
         node = self.head
+        output = []
         while node:
-            yield node.value
+            output.append(node.value)
             node = node.next
+        return output
 
     def is_circular(self):
         if self.head is None:
             return None
-        fast = self.head
-        slow = self.head
-        while fast.next:
+        fast = slow = self.head
+        while fast and fast.next:
             fast = fast.next.next
             slow = slow.next
             if fast == slow:
                 return True
-
         return False
+
+    def circular_position(self):
+        if self.head is None:
+            return
+        fast = slow = self.head
+        while fast and fast.next:
+            fast = fast.next.next
+            slow = slow.next
+            if fast == slow:
+                break
+        # Not a circular linked list
+        if not fast or not fast.next:
+            return -1
+        # if a circular linked list, keep fast pointer at the node where they met, set slow pointer to head
+        # increase fast, slow by 1, the start of the cycle is the node where they meet again
+        slow = self.head
+        while slow != fast:
+            fast = fast.next
+            slow = slow.next
+
+        return slow
+        
 
     def __repr__(self):
         if self.is_circular():
@@ -56,14 +78,15 @@ while node.next:
 
 node.next = start_node
 
-print(list_with_loop.__repr__())
+#print(list_with_loop.__repr__())
 
 print(list_with_loop.is_circular())
+print(list_with_loop.circular_position().value)
 
 ll = LinkedList()
 for v in [0,4,3,2,1]:
     ll.append(v)
 
-print(ll.__repr__())
+#print(ll.__repr__())
 
 print(ll.is_circular())
