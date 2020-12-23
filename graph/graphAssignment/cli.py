@@ -1,5 +1,11 @@
 import argparse
+import familytree 
 from familytree import FamilyTree
+
+family = familytree.main()
+family
+
+
 
 global args
 def main(args=None):
@@ -38,13 +44,13 @@ def add_family_member(args):
     #if flag == 'N': 
     FamilyTree.add_family_member(args.id, args.name, args.gender, args.age)
     
-    """ else:
+    else:
         print("Please enter a valid relationship this person has")
         print("*** Valid relationships: married, divorced, parent, offspring, adopted, sibling")
         relationship = input("Relationship: ")
         print("Please enter the id of the person that relationship is to")
         existing_person_id = input("id: ")
-        FamilyTree.add_family_member(args.id, args.name, args.gender, args.age, existing_person_id, relationship) """
+        FamilyTree.add_family_member(args.id, args.name, args.gender, args.age, existing_person_id, relationship)
     #return (relationship, relative_id)
 
 
@@ -56,5 +62,5 @@ def edit_family_member(args):
 def remove_family_member(args):
     print(args.name, " has been removed")
 
-main()
-
+if __name__ == "__main__":
+    main()

@@ -170,7 +170,7 @@ class PQ(Heap):
         return self.bfs()
     
 
-if __name__ == "__main__":
+def main():
     pq = PQ()
     #print(pq.add(1,6))
     #print(pq.add(2,7))
@@ -197,7 +197,7 @@ if __name__ == "__main__":
              
 
 
-
+main()
     
     
 
